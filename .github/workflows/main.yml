@@ -1,39 +1,33 @@
-# Pipeline Execução de Testes em Aplicações Web
+name: Web E2E Tests
 
-# nome da pipeline
-name: 'Web E2E Tests'
-
-on:
+on: 
   workflow_dispatch:
 
 jobs:
   e2e-tests:
-    # maquina onde o job vai rodar
+
     runs-on: ubuntu-latest
 
-    # passos do job
-    steps:
-      # clone do projeto
+    steps: 
+
+      # clone do projeto para a máquina
       - uses: actions/checkout@v4
 
       # Conferir a versão instalada
       - name: Node version
         run: node --version
 
-      # instalação das dependências
       - name: Instalando dependências
         run: npm install
-      
-      # execução de testes 
-      - name: Executando testes web
+
+      - name: Executando os testes
         run: npx cypress run
-		
-      # Upload do relatorio Mochawesome
-      - name: Salvando Relatório Mochawesome
-        uses: actions/upload-artifact@v4
+
+      - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: Relatório Mochawesome
+          name: relatorios
           path: |
             cypress/reports
             cypress/screenshots
+            cypress/videos
