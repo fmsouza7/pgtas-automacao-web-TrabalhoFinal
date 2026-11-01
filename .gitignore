@@ -1,0 +1,11 @@
+node_modules
+log
+results
+
+# cypress
+cypress/reports
+cypress/screenshots
+
+# env files
+.env.production
+.env.test
