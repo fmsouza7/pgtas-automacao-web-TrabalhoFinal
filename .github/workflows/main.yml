@@ -18,7 +18,7 @@ jobs:
 
       # Conferir a versão instalada
       - name: Node version
-		run: node --version
+        run: node --version
 
       # instalação das dependências
       - name: Instalando dependências
@@ -35,5 +35,5 @@ jobs:
         with:
           name: Relatório Mochawesome
           path: |
-			cypress/reports
-			cypress/screenshots
+            cypress/reports
+            cypress/screenshots
