@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # Conferir a versão instalada
-      - uses: Node version
+      - name: Node version
 		run: node --version
 
       # instalação das dependências
